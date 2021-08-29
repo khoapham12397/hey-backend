@@ -14,12 +14,8 @@ public class AuthenticationHandler extends BaseHandler{
     private static final Logger LOGGER = LogManager.getLogger(AuthenticationHandler.class);
 
     private AuthenticationService authenticationService;
-    
-    
-    public void setWebService(AuthenticationService authenticationService) {
-        this.authenticationService = authenticationService;
-    }
-    
+
+    public void setWebService(AuthenticationService authenticationService) {this.authenticationService = authenticationService;}
     public AuthenticationService getWebService() {
         return authenticationService;
     }
@@ -38,7 +34,6 @@ public class AuthenticationHandler extends BaseHandler{
         }, Future.future().setHandler(handler -> {
             handleException(handler.cause(), routingContext.response());
         }));
-
     }
   
     

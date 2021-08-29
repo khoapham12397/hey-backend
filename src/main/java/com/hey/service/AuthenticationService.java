@@ -1,12 +1,9 @@
 package com.hey.service;
 
+import com.hey.cache.client.RedisCacheExtend;
 import com.hey.model.User;
 import com.hey.model.UserAuth;
-import com.hey.util.ErrorCode;
-import com.hey.util.HeyHttpStatusException;
-import com.hey.util.HttpStatus;
-import com.hey.util.JsonUtils;
-import com.hey.util.LogUtils;
+import com.hey.util.*;
 import io.vertx.core.Future;
 import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpServerRequest;
@@ -21,7 +18,6 @@ import java.util.Date;
 
 
 public class AuthenticationService extends BaseService {
-	
     public Future<JsonObject> signIn(String requestJson) {
 
         Future<JsonObject> future = Future.future();
@@ -34,10 +30,12 @@ public class AuthenticationService extends BaseService {
             if(userAuthRes != null) {
                 if (BCrypt.checkpw(user.getPassword(), userAuthRes.getHashedPassword())) {
                     String jwt = jwtManager.generateToken(userAuthRes.getUserId());
-                    
+                    String csrf_token = GenerationUtils.generateUUID();
                     JsonObject obj = new JsonObject();
                     obj.put("jwt", jwt);
                     obj.put("userId", userAuthRes.getUserId());
+                    obj.put("csrf_token", csrf_token);
+                    GenerationUtils.getRedis().setCSRFToken(userAuthRes.getUserId(),csrf_token);
                     LogUtils.log("Signin granted with username " + user.getUserName());
                     future.complete(obj);	
                     
@@ -59,10 +57,8 @@ public class AuthenticationService extends BaseService {
     public void signOut(RoutingContext routingContext) {
         HttpServerRequest request = routingContext.request();
         HttpServerResponse response = routingContext.response();
-
         // Extract the token from the Authorization header
         String token = request.headers().get(HttpHeaders.AUTHORIZATION).substring(AUTHENTICATION_SCHEME.length()).trim();
-
         try {
             if (token != null) {
                 JsonObject authObj = new JsonObject().put("jwt", token);
@@ -89,5 +85,4 @@ public class AuthenticationService extends BaseService {
                     .end(JsonUtils.toErrorJSON(obj));
         }
     }
-    
 }

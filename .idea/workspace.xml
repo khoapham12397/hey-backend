@@ -6,8 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="97b5deda-9051-40de-9661-5af2dd5738c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/walletmodel/TopupResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/walletmodel/TopupResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/walletmodel/TopupResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/walletmodel/TopupResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/api/WsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/api/WsServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/cache/client/RedisCacheExtend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/cache/client/RedisCacheExtend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/handler/AuthenticationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/handler/AuthenticationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/handler/ProtectedApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/handler/ProtectedApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/handler/WalletProtectedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/handler/WalletProtectedHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/service/WalletService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/util/GenerationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/util/GenerationUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hey/webclient/MyWebClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hey/webclient/MyWebClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/api/WsServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/cache/client/RedisCacheExtend.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/cache/client/RedisCacheExtend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/handler/AuthenticationHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/handler/AuthenticationHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/handler/ProtectedApiHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/handler/ProtectedApiHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/handler/WalletProtectedHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/handler/WalletProtectedHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/service/AuthenticationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/service/AuthenticationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/service/WalletService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/service/WalletService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/util/GenerationUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/util/GenerationUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hey/webclient/MyWebClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hey/webclient/MyWebClient.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

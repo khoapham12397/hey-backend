@@ -3,6 +3,7 @@ package com.hey.cache.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hey.util.LogUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.hey.model.User;
@@ -709,5 +710,18 @@ public class RedisCacheExtend  {
 				{future.fail(ar.cause());}
 		});
 		return future;
+	}
+
+	public void setCSRFToken(String userId, String token){
+		String key = "token_" + userId;
+		client.set(key, token, asyncResult->{
+			if (asyncResult.succeeded()) {
+				LogUtils.log("Created token for user: " + userId);
+			}
+			client.expire(key, 86400, asyncResult1->{
+				if (asyncResult1.succeeded())
+					LogUtils.log("Set expire token for user: " + userId);
+			});
+		});
 	}
 }

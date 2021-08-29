@@ -2,6 +2,7 @@ package com.hey.util;
 
 import com.hey.cache.client.RedisCacheExtend;
 import io.vertx.core.Future;
+import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -14,6 +15,7 @@ public final class GenerationUtils {
     public static String generateUUID() {return UUID.randomUUID().toString();}
 
     public static void setRedis(RedisCacheExtend redisCacheExtend){redis = redisCacheExtend;}
+    public static RedisCacheExtend getRedis(){return redis;}
 
     public static String generateRandomId(){
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd-"));

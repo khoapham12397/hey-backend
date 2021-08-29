@@ -41,17 +41,12 @@ public class WsServer {
 
     private WsServer() {
     }
-   
-    
+
     public static WsServer newInstance() {
         WsServer wsServer = new WsServer();
         return wsServer;
     }
-    
-    
-    // no can duyet kha dai dung vayd/o:
-   
-    
+
     public Future<Void> createWsServer(Vertx vertx) {
         Future future = Future.succeededFuture();
         vertx.createHttpServer().websocketHandler(new Handler<ServerWebSocket>() {
@@ -75,7 +70,6 @@ public class WsServer {
                                 LogUtils.log("User " + userId + " registering new connection with id: " + id );
                                 LOGGER.info("registering new connection with id: " + id + " for user: " + userId);
                                 userWsChannelManager.registerChannel(userId, id).setHandler(ar -> handleNotificationCase(ar, userId, true));
-                                
                                 
                                 ws.closeHandler(new Handler<Void>() {
                                     @Override
@@ -180,7 +174,6 @@ public class WsServer {
                                             userOfflineResponse.setFullName(fullName);
                                             userWsChannelManager.sendMessage(userOfflineResponse, friendId);
                                         }
-
                                     }
                                 }
                             }

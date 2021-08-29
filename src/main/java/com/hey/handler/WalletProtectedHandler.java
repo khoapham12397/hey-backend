@@ -74,7 +74,6 @@ public class WalletProtectedHandler {
 		return walletService;
 	}
 
-
 	public void setWalletService(WalletService walletService) {
 		this.walletService = walletService;
 	}
@@ -105,12 +104,11 @@ public class WalletProtectedHandler {
 
 	 	try {
 	 		String authorization= request.headers().get(HttpHeaders.AUTHORIZATION);
-	 		
+	 		//String csrf_token = request.headers().get("")
 	 		if(StringUtils.isBlank(authorization)) {
                 throw new HttpStatusException(HttpStatus.UNAUTHORIZED.code(), HttpStatus.UNAUTHORIZED.message());
 	 		}
             authorization = authorization.replace(AUTHENTICATION_SCHEME, "").trim();
-            
             JsonObject authInfo = new JsonObject();
             authInfo.put("jwt", authorization);
             jwtManager.authenticate(authInfo, event ->{
@@ -300,6 +298,7 @@ public class WalletProtectedHandler {
 			.end(JsonUtils.toSuccessJSON(result));
 		},Future.future().setHandler(handler->{handleException(handler.cause(), response);}));
 	}
+
 	public void topupDirect(HttpServerRequest request , HttpServerResponse response,JsonObject jsonObject ,String userId) {
 		System.out.println(jsonObject.getString("message")+" "+jsonObject.getLong("amount")+ " with pin: "+jsonObject.getString("pin"));
 		Future<TopupResponse> future = walletService.topup(jsonObject.mapTo(TopupRequest.class), userId);

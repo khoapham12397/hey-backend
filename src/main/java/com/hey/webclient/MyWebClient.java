@@ -113,7 +113,6 @@ public class MyWebClient {
 	
 	public Future<JsonObject> callPostService(String url , JsonObject body){
 		Future<JsonObject> future = Future.future();
-		
 		HttpRequest<JsonObject> rq = client.post(8080,"localhost",url)
 			.putHeader("Accept", "application/json")
 			.as(BodyCodec.jsonObject());

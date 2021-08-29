@@ -45,8 +45,6 @@ public class ProtectedApiHandler extends BaseHandler {
         HttpServerResponse response = rc.response();
         String requestPath = request.path();
         String path = StringUtils.substringAfter(requestPath, "/api/protected");
-        
-        
         try {
             String authorization = request.headers().get(HttpHeaders.AUTHORIZATION);
             if (StringUtils.isBlank(authorization)) {
@@ -219,20 +217,14 @@ public class ProtectedApiHandler extends BaseHandler {
 
     public void changeStatus(HttpServerRequest request, HttpServerResponse response, JsonObject requestObject, String userId) {
         ChangeStatusRequest changeStatusRequest = requestObject.mapTo(ChangeStatusRequest.class);
-
         Future<JsonObject> insertUserStatusFuture = apiService.changeStatus(changeStatusRequest, userId);
-
         insertUserStatusFuture.compose(jsonObject -> {
-
             response
                     .putHeader("content-type", "application/json; charset=utf-8")
                     .end(JsonUtils.toSuccessJSON(jsonObject));
-
         }, Future.future().setHandler(handler -> {
             handleException(handler.cause(), response);
         }));
-
-
     }
 
     public void getUserProfile(HttpServerRequest request, HttpServerResponse response, JsonObject requestObject, String userId) {

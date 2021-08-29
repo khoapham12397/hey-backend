@@ -141,7 +141,6 @@ public class WalletService {
 		Future<GetBalanceResponse> future = Future.future();
 		JsonObject obj =new JsonObject();
 		obj.put("userId", userId);
-		
 	 	Future<JsonObject> callFuture = webClient.callPostService("/getBalance", obj );
 	 	callFuture.compose(result->{
 	 		GetBalanceResponse res = result.mapTo(GetBalanceResponse.class);
@@ -151,6 +150,7 @@ public class WalletService {
 	 	}));
 	 	return future;
 	}
+
 	public Future<ChangePinResponse> changePin(ChangePinRequest rq, String userId){
 		Future<ChangePinResponse> future = Future.future();
 		JsonObject body = new JsonObject();
@@ -200,16 +200,12 @@ public class WalletService {
 	}
 	
 	public Future<TopupResponse> topup(TopupRequest rq, String userId) {
-		
 		Future<TopupResponse> future = Future.future();
-		
-		String pin = rq.getPin(); 
-	
+		String pin = rq.getPin();
+		System.out.println(pin);
 		Future<WalletResponse> authFuture = redisCache.getWallet(userId);
-		
-		
+
 		authFuture.compose(result->{
-		
 			System.out.println("hashedPin: "+ result.getHashedPin());
 			if(result!=null && pin.equals(result.getHashedPin())) {
 				JsonObject body =new JsonObject();
